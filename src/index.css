@@ -1,0 +1,82 @@
+:root {
+  /* Spotify-like Dark Palette */
+  --bg-color: #000000;
+  --bg-surface: #121212;
+  --bg-surface-elevated: #282828;
+
+  /* Accent Colors (Romantic Cherry/Rose) */
+  --accent-primary: #F43F5E;
+  /* Vivid Rose/Cherry */
+  --accent-secondary: #FDA4AF;
+  /* Soft Pink */
+  --accent-glow: rgba(244, 63, 94, 0.4);
+
+  /* Typography Colors */
+  --text-main: #FFFFFF;
+  --text-light: #B3B3B3;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(18, 18, 18, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+
+  /* Utils */
+  --border-radius-xs: 4px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Nunito Sans', -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  overflow: hidden;
+  /* Fix per la SPA mobile-like app */
+  /* Antialiasing per testi netti su bg scuro */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100dvh;
+  /* Altezza viewport dinamica (mobile browser address bar fix) */
+  width: 100vw;
+  max-width: 480px;
+  /* Mantieni feeling mobile su schermi grandi */
+  margin: 0 auto;
+  position: relative;
+  background-color: var(--bg-surface);
+  /* Sfondo primario app */
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Utils Typography */
+.text-main {
+  color: var(--text-main);
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.text-accent {
+  color: var(--accent-primary);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--glass-border);
+}
