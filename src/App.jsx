@@ -8,6 +8,7 @@ import WelcomePage from './pagine/WelcomePage.jsx';
 import ExplorePage from './pagine/ExplorePage.jsx';
 import PlayerPage from './pagine/PlayerPage.jsx';
 import ComingSoonPage from './pagine/ComingSoonPage.jsx';
+import LoginGate from './pagine/LoginGate.jsx';
 
 // --- Main App: gestisce solo la navigazione tra le pagine ---
 function App() {
@@ -22,10 +23,15 @@ function App() {
   const closePlayer = () => setCurrentPage('explore');
 
   if (currentPage === 'welcome') {
-    return <WelcomePage onEnter={() => setCurrentPage('explore')} />;
+    return (
+      <LoginGate>
+        <WelcomePage onEnter={() => setCurrentPage('explore')} />
+      </LoginGate>
+    );
   }
 
   return (
+    <LoginGate>
     <div className="app-layout">
       <main className="main-content" style={{ paddingBottom: currentPage === 'player' ? '0' : '90px' }}>
         {currentPage === 'explore' && (
@@ -80,6 +86,7 @@ function App() {
         </nav>
       )}
     </div>
+    </LoginGate>
   );
 }
 
